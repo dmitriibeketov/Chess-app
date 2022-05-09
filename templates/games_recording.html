@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for game_number in games_list %}
+    <h2>Партия № {{ game_number + 1 }} </h2>
+    <h4>{{ games_list[game_number][0] }}</h4>
+    <table bordercolor="black" border="1">
+        {% for movement_number in games_list[game_number][1] %}
+            <tr><td>{{ movement_number + 1 }}</td><td>{{ games_list[game_number][1][movement_number][0] }}</td>
+                <td>{{ games_list[game_number][1][movement_number][1] }}</td></tr>
+        {% endfor %}
+    </table>
+    <h4>{{ games_list[game_number][2] }}</h4>
+    <br>
+{% endfor %}
+{% endblock %}

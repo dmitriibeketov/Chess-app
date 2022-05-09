@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ message }}</h1>
+{% for x in range(8)%}
+    <img src='static/Горизонталь.png' hspace="13">
+    <br>
+    <p>{{ 8 - x }}
+    {% for list in board %}
+    <img src='static/Вертикаль.png'>
+    {% if not list[7 - x].figure %}
+        <img src='static/Белая клетка.jpg'>
+    {% else %}
+        <img src='{{ list[7 - x].figure.image }}'>
+    {% endif %}
+    {% endfor %}
+    <img src='static/Вертикаль.png'>
+    <br>
+{% endfor %}
+<br>
+<img src='static/Горизонталь.png' hspace="13">
+<p style="margin: 35px; font-size: 200%; white-space: pre">a      b      c      d      e       f      g      h
+{% endblock %}
